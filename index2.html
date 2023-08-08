@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="/23-or-and-operators/style2.css">
+    <style>
+        /* Ваши стили здесь */
+        .navbar-notification input[type="checkbox"]:checked + .notification-list {
+            display: block;
+        }
+    </style>
+    <title>Document</title>
+</head>
+<body>
+    <nav class="navbar">
+        <span>NOTIFICATION</span>
+        <div
+            role="alert"
+            aria-describedby="notification-label"
+            aria-live="polite"
+            class="navbar-notification">
+            <label 
+                id="notification-label"
+                for="not-toggler">notifications
+            </label>
+            <div>
+                <input id="not-toggler" type="checkbox">
+                <div class="notification-list">
+                    <div class="notification">Notification 1</div>
+                    <div class="notification">Notification 2</div>
+                    <div class="notification">Notification 3</div>
+                </div>
+            </div>
+            <span class="badge">3</span>
+        </div>
+    </nav>
+</body>
+</html>

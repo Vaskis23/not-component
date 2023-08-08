@@ -1,0 +1,94 @@
+body {
+    margin: 0;
+    background-color: #333;
+}
+
+.navbar {
+    background: #777;
+    color: white;
+    padding: 1rem;
+    font-family: Aria;
+}
+.navbar span {
+    display: inline-block;
+    vertical-align: middle;
+}
+.navbar-notification {
+    /*settings*/
+    --size: 2rem;
+
+    display: inline-block;
+    vertical-align: middle;
+    margin-left: 5em;
+    position: relative;
+}
+@media (max-width: 1000px) {
+    .navbar-notification {
+        --size: 1rem;
+    }
+}
+/* Скрываем список уведомлений по умолчанию */
+.notification-list {
+    display: none;
+}
+
+/* Отображаем список при клике на input:checked */
+#not-toggler:checked ~ .navbar-notification .notification-list {
+    display: block;
+}
+
+
+.navbar-notification label {
+    /* background-image: url(/23-or-and-operators/bell-circle.svg); */
+    background-color: greenyellow;
+
+    mask:url(/23-or-and-operators/bell-circle.svg);
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-mask:url(/23-or-and-operators/bell-circle.svg);
+    font-size: 0;
+    /* color: transparent; */
+
+    display: inline-block;
+    vertical-align: middle;
+    width: var(--size);
+    height: var(--size);
+    cursor: pointer;
+
+    transform: rotate(0deg);
+    transform-origin: top;
+    animation: swing 0.2s 10;
+}
+
+.navbar-notification .badge {
+    font-size: calc(var(--size) / 2);
+    display: inline-block;
+    width: 1em;
+    height: 1em;
+    background-color: red;
+    text-align: center;
+    line-height: 1em;
+    border-radius: 100%;
+    position: absolute;
+    right: 0;top: 0;
+    opacity: 0;
+    animation: fade 1s 1s;
+    animation-fill-mode: forwards;
+}
+
+.navbar-notification input[type="checkbox"] {
+    display: none;
+}
+
+@keyframes swing {
+    0% {transform: rotate(0)}
+    25% {transform: rotate(15deg)}
+    50% {transform: rotate(0)}
+    75% {transform: rotate(-15deg)}
+    100% {transform: rotate(0)}
+}
+
+@keyframes fade {
+     0% {opacity: 0;}
+     100% {opacity: 1;}
+}
